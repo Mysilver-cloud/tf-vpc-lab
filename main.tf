@@ -1,25 +1,4 @@
-resource "aws_s3_bucket" "ta_backend_bucket" {
-    bucket = "ta-terraform-tfstates-2965-7290-6806"
 
-    lifecycle {
-      prevent_destroy = true
-    }
-
-    tags = {
-        Name = "ta-terraform-tfstates-2965-7290-6806"
-        Environment = "Test"
-        Team        = "Talent-Academy"
-        Owner       = "Anh"
-    }
-}
-
-resource "aws_s3_bucket_versioning" "version_my_bucket" {
-  bucket = aws_s3_bucket.ta_backend_bucket.id
-
-  versioning_configuration {
-    status = "Enabled"
-  }
-}
 
 resource "aws_vpc" "main" {
   cidr_block       = "192.168.0.0/16"
@@ -108,10 +87,7 @@ resource "aws_route_table" "aws_route_table_public" {
     gateway_id = aws_internet_gateway.igw.id
   }
 
-  route {
-    ipv6_cidr_block        = "::/0"
-    egress_only_gateway_id = aws_egress_only_internet_gateway.igw.id
-  }
+
 
   tags = {
     Name = "aws_route_table_public"
