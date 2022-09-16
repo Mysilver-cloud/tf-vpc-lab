@@ -119,19 +119,19 @@ resource "aws_route_table" "aws_route_table_public" {
 }
 
 # Associate public subnet 1 to route table
-resource "aws_route_table_association" "rt_associate_public" {
+resource "aws_route_table_association" "rt_associate_public1" {
     subnet_id = aws_subnet.main1.id
     route_table_id = aws_route_table.aws_route_table_public.id
 }
 
 # Associate public subnet 2 to route table
-resource "aws_route_table_association" "rt_associate_public" {
+resource "aws_route_table_association" "rt_associate_public2" {
     subnet_id = aws_subnet.main2.id
     route_table_id = aws_route_table.aws_route_table_public.id
 }
 
 # Associate public subnet 3 to route table
-resource "aws_route_table_association" "rt_associate_public" {
+resource "aws_route_table_association" "rt_associate_public3" {
     subnet_id = aws_subnet.main3.id
     route_table_id = aws_route_table.aws_route_table_public.id
 }
@@ -160,19 +160,19 @@ tags = {
 }
 
 # Associate private subnet 1 to route table
-resource "aws_route_table_association" "rt_associate_private" {
+resource "aws_route_table_association" "rt_associate_private1" {
     subnet_id = aws_subnet.private1.id
     route_table_id = aws_route_table.rt_nat.id
 }
 
 # Associate private subnet 2 to route table
-resource "aws_route_table_association" "rt_associate_private" {
+resource "aws_route_table_association" "rt_associate_private2" {
     subnet_id = aws_subnet.private2.id
     route_table_id = aws_route_table.rt_nat.id
 }
 
 # Associate private subnet 1 to route table
-resource "aws_route_table_association" "rt_associate_private" {
+resource "aws_route_table_association" "rt_associate_private3" {
     subnet_id = aws_subnet.private3.id
     route_table_id = aws_route_table.rt_nat.id
 }
